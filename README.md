@@ -336,4 +336,4 @@
         }
     }
 ```        
-   ![编辑界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
+   ![编辑时界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
