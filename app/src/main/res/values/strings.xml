@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NotePad</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_revert">Revert</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_paste">Paste</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_copy">Copy</string>
+    <string name="save">保存</string>
+    <string name="edittext_hint"><font color ="@android:color/holo_orange_dark"><font size="19">搜索</font></font></string>
+</resources>
