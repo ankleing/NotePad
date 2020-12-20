@@ -245,7 +245,7 @@
             ll.setBackgroundResource(R.drawable.night);
         }
 ```   
-   ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image4.png)
+   ![深色界面](https://github.com/ankleing/NotePad/tree/main/image/image4.png)
    + 3 **美化UI**
    使卡片变得透明以及增加圆角
 ```
@@ -294,4 +294,4 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 ```        
-   ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
+   ![编辑界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
