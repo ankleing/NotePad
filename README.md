@@ -111,8 +111,8 @@
         </EditText>
 ```
    + 修改前后的虚拟键盘
-   ![修改前的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image5.png)
-   ![修改后的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image6.png)
+   ![修改前的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image6.png)
+   ![修改后的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image5.png)
    + 监听虚拟键盘搜索键，并在按下搜索键是接受EditText的数据，
       且对列表中的数据进行查询，而非查询数据库以节省资源
    ```java
