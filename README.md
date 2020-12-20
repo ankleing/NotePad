@@ -90,7 +90,7 @@
 ```
    ### 2 实现搜索笔记功能
    + 点击搜索框时修改回车键为搜索键
-    ```
+```
       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -109,7 +109,7 @@
             android:maxLines="1"
             >
         </EditText>
-    ```
+```
     + 修改前后的虚拟键盘
     ![修改前的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image5.png)
     ![修改后的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image6.png)
@@ -286,6 +286,8 @@
         />
 </shape>
 ```
+
+![圆角卡片](https://github.com/ankleing/NotePad/tree/main/image/image1.png)
   分开标题栏和内容栏，方便输入内容，让人增大EditText字体，并将其改成高亮橙色让人更容易注意到
 ```
 <EditText
@@ -318,6 +320,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 ```        
+  ![编辑时界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
   使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
 ```
 @Override
@@ -336,4 +339,4 @@
         }
     }
 ```        
-   ![编辑时界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
+ 
