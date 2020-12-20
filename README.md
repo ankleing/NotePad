@@ -236,7 +236,7 @@
         />
 </shape>
    ```
-   ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image1.png)
+![主界面](https://github.com/ankleing/NotePad/tree/main/image/image1.png)
    ### 2 根据时间切换深色背景
    在夜晚切换深色背景减缓人眼疲劳
    主页面切换深色背景
@@ -254,7 +254,7 @@
             ll.setBackgroundResource(R.drawable.night);
         }
  ```
-    ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image3.png)
+![主界面](https://github.com/ankleing/NotePad/tree/main/image/image3.png)
   编辑界面切换深色背景
 ```
  ConstraintLayout ll =findViewById(R.id.consly);
