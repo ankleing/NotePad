@@ -74,6 +74,20 @@
         cursor.close();
     }
 ```
+ +  修改时获得修改时的时间
+```
+            /* 根据Intent传来的Action判断是否为编辑状态*/
+   else if (mState==STATE_EDIT||!(localTitle.equals(title.getText().toString())) || !(localNote.equals(note.getText().toString())) ) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(NotePad.NoteTable.NOTE_TITLE, title.getText().toString());
+            contentValues.put(NotePad.NoteTable.NOTE_CONTENT, note.getText().toString());
+            /* 修改时获得当前时间并传给ContentProvider*/
+            modify = System.currentTimeMillis();
+            contentValues.put(NotePad.NoteTable.MODIFY_DATE, modify);
+            this.getContentResolver().update(getIntent().getData(), contentValues, null, null);
+
+        }
+```
    + 2 **实现搜索笔记功能**
    + 监听回车键，并在按下回车键是接受EditText的数据，
       且对列表中的数据进行查询，而非查询数据库以节省资源
