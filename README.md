@@ -1,10 +1,10 @@
 # NotePad
 由于由于recyclerview只支持高版本gradle，为了实现卡片式布局，故重写项目，以实现增删改查，以及
 基本功能时间戳和查询笔记，美化UI，特色功能卡片式布局，随时间切换深色背景
-## 一基本功能实现
+## 一 基本功能实现
 ### 1 添加时间戳
    + 创建列表投影
-```
+``` java
    private static HashMap<String,String> NotesProjectionMap;
     static {
         NotesProjectionMap=new HashMap<String,String>();
@@ -16,7 +16,7 @@
     }
 ```
 + 在契约类中为创建表格的sql语句添加modify词条
-```
+```java
     public static final class NoteTable implements BaseColumns{
         public static final String TABLE_NAME ="notes";
         public static final Uri CONTENT_URI=Uri.parse("content://"+AUTHORITY+"/notes");
@@ -38,7 +38,7 @@
     }
 ```    
 + 格式化输出事件戳为日期格式
-```
+```java
   private void query(){
        /* 利用ContentResolver读取数据库中存放的数据*/
         Cursor cursor = this.getContentResolver().query(NotePad.NoteTable.CONTENT_URI,null,null,null,null);
@@ -75,7 +75,7 @@
     }
 ```
  +  修改时获得修改时的时间
-```
+```java
             /* 根据Intent传来的Action判断是否为编辑状态*/
    else if (mState==STATE_EDIT||!(localTitle.equals(title.getText().toString())) || !(localNote.equals(note.getText().toString())) ) {
             ContentValues contentValues = new ContentValues();
@@ -90,7 +90,7 @@
 ```
    ### 2 实现搜索笔记功能
    + 点击搜索框时修改回车键为搜索键
-```
+```java
       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -115,7 +115,7 @@
    ![修改后的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image6.png)
    + 监听虚拟键盘搜索键，并在按下搜索键是接受EditText的数据，
       且对列表中的数据进行查询，而非查询数据库以节省资源
-   ```
+   ```java
    /*定位到xml中的EditText,并且检测虚拟键盘搜索键 ，一旦按下则调用Show2刷新主页面*/
         EditText et = findViewById(R.id.edtx);
         et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -171,7 +171,7 @@
     }
    ```
    + 利用android:maxLines="1"禁止回车使用换行，防止误监听回车
-   ```
+   ```java
    <EditText
             android:id="@+id/edtx"
             android:layout_width="match_parent"
@@ -186,10 +186,10 @@
         </EditText>
    ```
    
- ## 二附加功能实现
+ ## er 附加功能实现
    ### 1 卡片式布局
    借助RecyclerView将笔记以卡片的央视进行瀑布流输出
-   ```
+   ```java
         public void Show(){
         query();
         mRecyclerView = this.findViewById(R.id.recyclerView);
@@ -222,7 +222,7 @@
     }
    ```
    + 在drawable中设置卡片样式
-   ```
+   ```java
     <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#80858175"/>
@@ -240,7 +240,7 @@
    ### 2 根据时间切换深色背景
    在夜晚切换深色背景减缓人眼疲劳
    主页面切换深色背景
-```
+```java
    LinearLayout ll =findViewById(R.id.layout);
         /*获取时间戳*/
         Long df = Long.valueOf(System.currentTimeMillis());
@@ -256,7 +256,7 @@
  ```
 ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image3.png)
   编辑界面切换深色背景
-```
+```java
  ConstraintLayout ll =findViewById(R.id.consly);
         Long df = Long.valueOf(System.currentTimeMillis());
         SimpleDateFormat sdf=new SimpleDateFormat("HH");
@@ -272,7 +272,7 @@
    ![深色界面](https://github.com/ankleing/NotePad/tree/main/image/image4.png)
    ### 3 美化UI
    使卡片变得透明以及增加圆角
-```
+```java
    <shape xmlns:android="http://schemas.android.com/apk/res/android">
    <!-- 以#80开头的颜色都为透明-->
     <solid android:color="#80858175"/>
@@ -289,7 +289,7 @@
 
 ![圆角卡片](https://github.com/ankleing/NotePad/tree/main/image/image1.png)
   分开标题栏和内容栏，方便输入内容，让人增大EditText字体，并将其改成高亮橙色让人更容易注意到
-```
+```java
 <EditText
         android:id="@+id/editorTitle"
         android:layout_width="match_parent"
@@ -322,7 +322,7 @@
 ```        
   ![编辑时界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
   使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
-```
+```java
 @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
