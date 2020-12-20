@@ -2,7 +2,7 @@
 由于由于recyclerview只支持高版本gradle，故重写项目，以实现增删改查，以及
 基本功能时间戳和查询笔记，美化UI，特色功能卡片式布局，随时间切换深色背景
 ## 一基本功能实现
-   + 1 **添加时间戳**
+### 1 添加时间戳
    + 创建列表投影
 ```
    private static HashMap<String,String> NotesProjectionMap;
@@ -88,16 +88,40 @@
 
         }
 ```
-   + 2 **实现搜索笔记功能**
-   + 监听回车键，并在按下回车键是接受EditText的数据，
+   ### 2 实现搜索笔记功能
+   + 点击搜索框时修改回车键为搜索键
+    ```
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
+
+        <EditText
+            android:id="@+id/edtx"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corner_box"
+            android:hint="@string/edittext_hint"
+            android:textColor="#fff"     
+         /*点击搜索框时修改回车键为搜索键盘*/
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:maxLines="1"
+            >
+        </EditText>
+    ```
+    + 修改前后的虚拟键盘
+    ![修改前的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image5.png)
+    ![修改后的虚拟键盘](https://github.com/ankleing/NotePad/tree/main/image/image6.png)
+   + 监听虚拟键盘搜索键，并在按下搜索键是接受EditText的数据，
       且对列表中的数据进行查询，而非查询数据库以节省资源
    ```
-   /*定位到xml中的EditText,并且检测回车键 ，一旦输入回车则调用Show2*/
+   /*定位到xml中的EditText,并且检测虚拟键盘搜索键 ，一旦按下则调用Show2刷新主页面*/
         EditText et = findViewById(R.id.edtx);
         et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                /*检测回车键是否按下 */
+                /*检测搜索键是否按下 */
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     String keyword = v.getText().toString().trim();
                     Show2();
@@ -163,7 +187,7 @@
    ```
    
  ## 二附加功能实现
-   + 1 **卡片式布局**
+   ### 1 卡片式布局
    借助RecyclerView将笔记以卡片的央视进行瀑布流输出
    ```
         public void Show(){
@@ -213,7 +237,7 @@
 </shape>
    ```
    ![主界面](https://github.com/ankleing/NotePad/tree/main/image/image1.png)
-   + 2 **根据时间切换深色背景**
+   ### 2 根据时间切换深色背景
    在夜晚切换深色背景减缓人眼疲劳
    主页面切换深色背景
 ```
@@ -246,7 +270,7 @@
         }
 ```   
    ![深色界面](https://github.com/ankleing/NotePad/tree/main/image/image4.png)
-   + 3 **美化UI**
+   ### 3 美化UI
    使卡片变得透明以及增加圆角
 ```
    <shape xmlns:android="http://schemas.android.com/apk/res/android">
@@ -293,5 +317,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+```        
+  使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
+```
+@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_add:
+                startActivity(new Intent(Intent.ACTION_INSERT, getIntent().getData()));
+                <!-- 增加动画效果-->
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                return true;
+            case R.id.menu_paste:
+                startActivityForResult(new Intent(Intent.ACTION_PASTE, getIntent().getData()),1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 ```        
    ![编辑界面](https://github.com/ankleing/NotePad/tree/main/image/image2.png)
