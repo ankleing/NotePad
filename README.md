@@ -239,7 +239,7 @@
 ![](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
    ### 2 根据时间切换深色背景
    在夜晚切换深色背景减缓人眼疲劳
-   主页面切换深色背景
+  + 主页面切换深色背景
 ```java
    LinearLayout ll =findViewById(R.id.layout);
         /*获取时间戳*/
@@ -255,7 +255,7 @@
         }
  ```
 ![](https://github.com/ankleing/NotePad/blob/main/image/image3.png)
-  编辑界面切换深色背景
+  + 编辑界面切换深色背景
 ```java
  ConstraintLayout ll =findViewById(R.id.consly);
         Long df = Long.valueOf(System.currentTimeMillis());
@@ -271,7 +271,7 @@
 ```   
    ![](https://github.com/ankleing/NotePad/blob/main/image/image4.png)
    ### 3 美化UI
-   使卡片变得透明以及增加圆角
+   + 使卡片变得透明以及增加圆角
 ```java
    <shape xmlns:android="http://schemas.android.com/apk/res/android">
    <!-- 以#80开头的颜色都为透明-->
@@ -288,7 +288,7 @@
 ```
 
 ![](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
-  分开标题栏和内容栏，方便输入内容，让人增大EditText字体，并将其改成高亮橙色让人更容易注意到
+   + 分开标题栏和内容栏，方便输入内容，让人增大EditText字体，并将其改成高亮橙色让人更容易注意到
 ```java
 <EditText
         android:id="@+id/editorTitle"
@@ -321,7 +321,7 @@
         tools:ignore="MissingConstraints" />
 ```        
   ![](https://github.com/ankleing/NotePad/blob/main/image/image2.png)
-  使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
++ 使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
 ```java
 @Override
     public boolean onOptionsItemSelected(MenuItem item) {
