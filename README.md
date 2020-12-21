@@ -112,7 +112,7 @@
 ```
    + 修改前后的虚拟键盘  
    ![](https://github.com/ankleing/NotePad/blob/main/image/image6.png)  
-   ![](https://github.com/ankleing/NotePad/c/main/image/image5.png)  
+   ![](https://github.com/ankleing/NotePad/blob/main/image/image5.png)  
    + 监听虚拟键盘搜索键，并在按下搜索键是接受EditText的数据，
       且对列表中的数据进行查询，而非查询数据库以节省资源
    ```java
@@ -236,7 +236,7 @@
         />
 </shape>
    ```
-![主界面](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
+![](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
    ### 2 根据时间切换深色背景
    在夜晚切换深色背景减缓人眼疲劳
    主页面切换深色背景
@@ -254,7 +254,7 @@
             ll.setBackgroundResource(R.drawable.night);
         }
  ```
-![主界面](https://github.com/ankleing/NotePad/blob/main/image/image3.png)
+![](https://github.com/ankleing/NotePad/blob/main/image/image3.png)
   编辑界面切换深色背景
 ```java
  ConstraintLayout ll =findViewById(R.id.consly);
@@ -269,7 +269,7 @@
             ll.setBackgroundResource(R.drawable.night);
         }
 ```   
-   ![深色界面](https://github.com/ankleing/NotePad/blob/main/image/image4.png)
+   ![](https://github.com/ankleing/NotePad/blob/main/image/image4.png)
    ### 3 美化UI
    使卡片变得透明以及增加圆角
 ```java
@@ -287,7 +287,7 @@
 </shape>
 ```
 
-![圆角卡片](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
+![](https://github.com/ankleing/NotePad/blob/main/image/image1.png)
   分开标题栏和内容栏，方便输入内容，让人增大EditText字体，并将其改成高亮橙色让人更容易注意到
 ```java
 <EditText
@@ -320,7 +320,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 ```        
-  ![编辑时界面](https://github.com/ankleing/NotePad/blob/main/image/image2.png)
+  ![](https://github.com/ankleing/NotePad/blob/main/image/image2.png)
   使点击添加新便签有淡入浅出的的动画效果，符合人体直觉
 ```java
 @Override
